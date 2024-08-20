@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:local_notification/home_screen.dart';
+import 'package:local_notification/notification_service.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  final NotificationService notificationService = NotificationService();
+  await notificationService.initNotification();
+  runApp(const MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
@@ -9,13 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Notification',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
         ),
         useMaterial3: true,
       ),
+      home: const HomeScreen(),
     );
   }
 }
