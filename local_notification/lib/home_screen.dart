@@ -7,20 +7,24 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () async {
-                final notificationService = NotificationService();
-                notificationService.showNotification(
-                  id: 1,
-                  body: 'This is a new notification',
-                  title: 'Local Notification',
-                  payload: 'Notification Max',
-                );
-              },
-              child: const Text('Notification')),
-        ],
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () async {
+                  final notificationService = NotificationService();
+                  notificationService.showNotification(
+                    id: 1,
+                    body: 'This is a new notification',
+                    title: 'Local Notification',
+                    payload: 'Notification Max',
+                  );
+                },
+                child: const Text('Notification')),
+          ],
+        ),
       ),
     );
   }
